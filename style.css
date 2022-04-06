@@ -1,0 +1,145 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+hr{
+    color: black;
+    height: 5px;
+    width: 100%;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    padding: 10px;
+    box-shadow: 5px 8px 8px #888888;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    
+}
+
+.visualizer{
+    height: 60vh;
+}
+
+.array-container{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    align-items: center;
+}
+
+.array-element{
+    background-color: azure;
+    padding: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 1px solid black;
+}
+
+
+.operation-menu{
+    display: flex;
+    width: 100vw;
+    margin-left: 10px;
+}
+
+.array-operation{
+    width: 75vw;
+}
+
+.visualization-operation{
+    width: 25vw;
+}
+
+.operation-input{
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+
+.operation-container{
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.btn{
+    background-color: rgb(0, 162, 255);
+    color: white;
+    font-size: 1.2rem;
+    outline: none;
+    border: none;
+    padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 3px 5px 5px #888;
+}
+
+.btn:active{
+    box-shadow: 1px 1px 1px #888;
+}
+
+.push{
+    width: 200px;
+}
+
+
+.partition{
+    height: 30px;
+    width: 1px;
+    background-color: black;
+}
+
+.operation-partition{
+    height: 30vh;
+    width: 1px;
+    background-color: black;
+}
+
+
+@keyframes append-animate {
+	from {
+		transform: scale(0);
+		opacity: 0;
+	}
+	to {
+		transform: scale(1);
+		opacity: 1;	
+	}
+}
+
+
+.new-element-normal {
+	animation: append-animate 0.3s linear;
+}
+
+.new-element-slow {
+	animation: append-animate 1s linear;
+}
+
+
+.new-element-fast {
+	animation: append-animate 0.1s linear;
+}
+
+
+
+.visualization-speed{
+    padding: 5px;
+    font-size: 1rem;
+}
