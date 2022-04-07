@@ -1,3 +1,4 @@
+//target elements
 const arrayContainer = document.querySelector('.array-container')
 const pushBtn = document.querySelector('.push-btn')
 const popBtn = document.querySelector('.pop-btn')
@@ -6,8 +7,6 @@ const animationSpeedOptions = animationSpeed.querySelectorAll('option')
 
 //get animation speed
 let speed = getAnimationSpeed()
-console.log('1', speed)
-
 
 
 //push element to array
@@ -32,12 +31,32 @@ pushBtn.addEventListener('click', () => {
 
 //pop element from array
 popBtn.addEventListener('click', () => {
-    const data = getLocalStorageData()
-    if(data){
-        data.pop()
-        insertData(data)
+    let speed = getAnimationSpeed()
+    let ms = 0
+    if(speed === 'normal' ){
+        ms = 300
+    } else if(speed === 'fast'){
+        ms = 100
+    } else if(speed === 'slow'){
+        ms = 1000
     }
-    renderArray('pop')
+    let allElements = document.querySelectorAll('.array-element')
+    for(let i = 0; i < allElements.length; i++){
+        if(i === allElements.length - 1){
+            allElements[i].style.backgroundColor = 'azure'
+            allElements[i].classList.add(`remove-element-${speed}`)
+            allElements[i].style.backgroundColor = 'red'
+        }
+    }
+    //this timeout method helps the animation to take place instead of just removing the element
+    setTimeout(()=>{
+        const data = getLocalStorageData()
+        if(data){
+            data.pop()
+            insertData(data)
+        }
+        renderArray('pop')
+    }, ms)
 })
 
 
@@ -61,7 +80,6 @@ function getLocalStorageData(){
 
 //function to render the array on the screen
 function renderArray(action = ''){
-    console.log('2', speed)
     arrayContainer.innerHTML = ''
     let arrayData = JSON.parse(localStorage.getItem('array'))
     if(arrayData){
@@ -71,16 +89,16 @@ function renderArray(action = ''){
             p.textContent = arrayData[i]
             p.setAttribute('class', 'array-element')
             if(action === 'push'){
-                console.log('3', speed)
                 if(i === arrayData.length - 1){
                     p.classList.add(`new-element-${speed}`)
+                    p.style.backgroundColor ='green'
                     arrayContainer.append(p)
                 }
             }
             arrayContainer.append(p)
         }
     } else{
-        con
+        
     }
 }
 

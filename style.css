@@ -123,6 +123,30 @@ hr{
 	}
 }
 
+@keyframes remove-animate {
+	from {
+		transform: scale(1);
+		opacity: 1;	
+	}
+    to {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+
+.remove-element-normal {
+	animation: remove-animate 0.3s linear;
+}
+
+.remove-element-slow {
+	animation: remove-animate 1s linear;
+}
+
+
+.remove-element-fast {
+	animation: remove-animate 0.1s linear;
+}
 
 .new-element-normal {
 	animation: append-animate 0.3s linear;
@@ -137,9 +161,20 @@ hr{
 	animation: append-animate 0.1s linear;
 }
 
+.animation-speed-container{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    flex-wrap: wrap;
+}
 
+.animation-label{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-right: 5px;
+}
 
 .visualization-speed{
-    padding: 5px;
+    padding: 3px;
     font-size: 1rem;
 }
